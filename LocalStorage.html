@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script> -->
+	<title>Local Storage</title>
+</head>
+
+<style type="text/css">
+
+	*{
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+		font-family: 'Roboto', sans-serif;
+	}	
+
+	a{
+		text-decoration: none;
+		margin: 2px;
+		color: darkorange;
+	}	
+
+	h2{
+		margin: 10px;
+	}
+
+	h2:after{
+		content: "";
+		background-color: darkorange;
+		width: 100px;
+		height: 3px;
+		display: block;
+		margin-top: 5px;
+	}
+
+	.content{
+		padding: 5px;
+		height: auto;
+		margin: 50px;
+		display: flex;
+		justify-content: center;
+	}
+
+	/* FORM */
+
+	input{
+		width: 100%;
+		height: 3em;
+		margin: 5px 0;
+		padding-left: 5px;
+		border-radius: 5px;
+	}
+
+	fieldset{
+		padding: 10px;
+		width: 20%;
+		height: 50%;
+		background-color: #F9F9F3;
+		border-radius: 5px;
+	}
+
+	/*button*/
+
+	button{
+		background-color:orangered;
+		color: white;
+		padding: 5px;
+		border-radius: 5px;
+		border: none;
+		margin: 5px;
+	}
+
+	button:hover{
+		cursor: pointer;
+		background-color:  darkorange;
+		transition: 0.5s ease;
+	}
+
+	/* BLOCK*/
+
+	.block{
+		background-color: #F9F9F3;
+		min-width: auto;
+		max-width: inherit;
+		height: auto;
+		border-radius: 5px;
+		padding: 10px;
+		margin-left: 20px;
+		border: 1px black solid;
+	}
+
+	/* TABLE */
+
+	#table-content{
+		width: 100%; 
+		border-collapse: collapse;
+	}
+
+	#table-content td, #table-content th{
+		border: 1px solid #ddd;
+		padding: 5px;
+		text-align: center;
+
+	}
+	#table-content tr:nth-child(even){background-color: #f2f2f2;}
+	#table-content tr:hover {background-color: #ddd;}
+
+	#table-content th {
+	  padding-top: 12px;
+	  padding-bottom: 12px;
+	  background-color: #04AA6D;
+	  color: white;
+	  text-align: center;
+	}
+/*<iconify-icon icon="akar-icons:edit"></iconify-icon>
+<iconify-icon icon="akar-icons:circle-x"></iconify-icon>*/
+
+</style>
+
+<body onload="renderUSER()">
+	
+	<div class="content">
+		<fieldset>
+			<h2>Nhập dữ liệu</h2>
+			<input type="text" placeholder="Mã sinh viên" name="msv" id="student">
+			<input type="text" placeholder="Tên tài khoản" name="nameUser" id="username">
+			<input type="password" placeholder="Mật khẩu" name="passUser" id="password">
+			<input type="text" placeholder="Lớp" name="class" id="class">
+			<button id="btn">Lưu mới</button>
+			<button id="edit" style="display: none;">Cập nhật</button>
+		</fieldset>			
+		<input type="hidden" id="index">	
+
+		<div class="block">
+			<h2>Thông tin tài khoản</h2>
+			<input type="text" id="searchInput" name="search" placeholder="Tìm kiếm" >
+			<button id="sc-btn">Tìm kiếm</button>
+			<br>
+			<select id="sort">
+				<option value="min">1 - 10</option>
+				<option value="max">10 - 1</option>
+			</select>
+			<button id="st-btn">Sắp xếp</button>
+			<table id="table-content">
+			</table>			
+		</div>
+	</div>
+
+
+</body>
+	<script language="javascript" src="LocalStorage.js"></script>
+
+</html>
