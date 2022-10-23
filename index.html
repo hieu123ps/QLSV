@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Đăng nhập</title>
+</head>
+
+<style type="text/css">
+
+	*{
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+		font-family: 'Roboto', sans-serif;
+	}	
+
+	a{
+		text-decoration: none;
+		margin: 2px;
+		color: darkorange;
+	}	
+
+	h2{
+		margin: 10px;
+	}
+
+	h2:after{
+		content: "";
+		background-color: darkorange;
+		width: 100px;
+		height: 3px;
+		display: block;
+		margin-top: 5px;
+	}
+
+	.content{
+		padding: 5px;
+		height: auto;
+		margin: 50px;
+		display: flex;
+		justify-content: center;
+	}
+
+	/* FORM */
+
+	input{
+		width: 100%;
+		height: 3em;
+		margin: 5px 0;
+		padding-left: 5px;
+		border-radius: 5px;
+	}
+
+	fieldset{
+		padding: 10px;
+		width: 20%;
+		height: 50%;
+		background-color: #F9F9F3;
+		border-radius: 5px;
+	}
+
+	/*button*/
+
+	button{
+		background-color:orangered;
+		color: white;
+		padding: 5px;
+		border-radius: 5px;
+		border: none;
+		margin: 5px;
+	}
+
+	button:hover{
+		cursor: pointer;
+		background-color:  darkorange;
+		transition: 0.5s ease;
+	}
+
+	/* BLOCK*/
+
+	.block{
+		background-color: #F9F9F3;
+		min-width: auto;
+		max-width: inherit;
+		height: auto;
+		border-radius: 5px;
+		padding: 10px;
+		margin-left: 20px;
+		border: 1px black solid;
+	}
+
+</style>
+<body>
+<div class="content">
+	<fieldset>
+		<h2>Đăng nhập</h2>
+		<label>Tài khoản</label>
+		<input type="text" id="name" placeholder="Tài khoản">
+		<label>Mật khẩu</label>
+		<input type="password" id="pass" placeholder="Mật khẩu">
+		<button id="login">Đăng nhập</button>
+		<a href="LocalStorage.html"><button>Đăng kí</button></a>
+	</fieldset>
+</div>
+</body>
+<script type="text/javascript">
+
+	var lg = document.getElementById('login');
+	lg.addEventListener('click', function() {
+	var name = document.getElementById('name').value;
+	var pass = document.getElementById('pass').value;
+	let user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : [];		
+		for(let index = 0; index < user.length; index++){
+			console.log(user[index].pass)
+			if(user[index].name == name && user[index].pass == pass)
+			{
+				alert('Đăng nhập thành công')
+			}	
+		}
+
+	});
+
+</script>
+</html>
